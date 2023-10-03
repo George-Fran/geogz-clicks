@@ -26,7 +26,7 @@ router.post('/crear', async (req, res) => {
     const nuevoPersonalizado = await personalizado.save();
 
     // Genera el enlace personalizado
-    const linkPersonalizado = `/adaptado/${nuevoPersonalizado._id}`;
+    const linkPersonalizado = `https://geogz-clicks.vercel.app/adaptado/${nuevoPersonalizado._id}`;
 
     // Envía una respuesta JSON con el enlace
     res.json({ success: true, link: linkPersonalizado });
