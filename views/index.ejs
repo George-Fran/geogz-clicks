@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aburrido estoy</title>
+    <link rel="stylesheet" media="screen" href="/style/main.css">
+    <link rel="stylesheet" href="/css/style.css">
+            <meta content="Geogz Programador" property="og:title" />
+            <meta content="Esta es una pagina que cree por que estaba aburrido." property="og:description" />
+            <meta content="https://th.bing.com/th/id/R.c2756091f69c21f454fc77d08a7c04a8?rik=og9IXMA9qV5WAA&pid=ImgRaw&r=0" property="og:image" />
+            <meta content="GREEN" data-react-helmet="true" name="theme-color"/>
+            <link rel="icon" href="https://th.bing.com/th/id/R.c2756091f69c21f454fc77d08a7c04a8?rik=og9IXMA9qV5WAA&pid=ImgRaw&r=0"      
+            sizes="32x32" type="image/png">
+</head>
+<body>
+
+    <script>
+        function nao() {
+            location.href = "https://wa.me/51970201663?text=Enviame%20este%20mensaje%20si%20aceptaste%20😇"
+        }
+
+        function link() {
+            location.href="https://www.youtube.com/watch?v=ntTGt6BOVDA"
+        }
+        
+        function muevete() {
+
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            newWidth = (Math.random() * width);
+            newHeight = (Math.random() * height);
+
+            document.getElementById('btnNo').style.position = "absolute";
+            document.getElementById('btnNo').style.left = newWidth + "px";
+            document.getElementById('btnNo').style.top = newWidth + "px";
+
+            
+
+        } 
+    </script>
+
+    <header>
+        <a href="https://georgeportfolioo.netlify.app/" target="_blank" class="logo">
+            <img src="https://th.bing.com/th/id/R.c2756091f69c21f454fc77d08a7c04a8?rik=og9IXMA9qV5WAA&pid=ImgRaw&r=0" alt="logo">
+            <h2 class="nombre-empresa">Geogz</h2>
+        </a>
+        <nav>
+            <a href="/" class="nav-link">Inicio</a>
+            <a href="https://www.instagram.com/geogz.dev/" target="_blank" class="nav-link">Contacto</a>
+            <a href="/crear" class="nav-link">Link Propio</a>
+        </nav>
+
+    </header>
+
+    <h1 style="font-family: calibri;">Quieres cachar conmigo?</h1>
+    <img class="imagen" src="/img/uploads/hqdefault.png">
+    <br>
+    <input class="custom-btn" type="button" onclick="nao()" id="btnSi" value="Si" />
+    <input class="custom-btn-no" type="button" onclick="link()" id="btnNo" onmouseover="muevete()" value="No" />
+
+
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+body {
+    background-color: pink;
+    font-family: Calibri, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: white;
+    text-decoration: none;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    
+}
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+nav a{
+    font: 600;
+    padding-right: 11px;
+}
+nav a:hover {
+    color: aquamarine;
+}
+
+header {
+    min-height: 70px;
+    background-color: #272829   ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 44px;
+}
+
+.custom-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #4CAF50; /* Color de fondo para el botón "Si" */
+    color: white; /* Color del texto del botón "Si" */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.custom-btn:hover {
+    background-color: #45A049; /* Cambio de color al pasar el mouse por encima del botón "Si" */
+}
+
+.custom-btn-no {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 18px;
+    background-color: #FF5733; /* Color de fondo para el botón "No" */
+    color: white; /* Color del texto del botón "No" */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.custom-btn-no:hover {
+    background-color: #FF4322; /* Cambio de color al pasar el mouse por encima del botón "No" */
+}
+
+
+
+
+@media (max-width: 680px) {
+    header {
+        flex-direction: column;
+        padding: 10px 0px;
+    }
+    .imagen {
+        width: 100%;
+    }
+}

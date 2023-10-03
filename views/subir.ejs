@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Link</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="https://georgeportfolioo.netlify.app/" target="_blank" class="logo">
+            <img src="https://th.bing.com/th/id/R.c2756091f69c21f454fc77d08a7c04a8?rik=og9IXMA9qV5WAA&pid=ImgRaw&r=0"
+                alt="logo">
+            <h2 class="nombre-empresa">Geogz</h2>
+        </a>
+        <nav>
+            <a href="/" class="nav-link">Inicio</a>
+            <a href="https://www.instagram.com/geogz.dev/" target="_blank" class="nav-link">Contacto</a>
+            <a href="/crear" class="nav-link">Link Propio</a>
+        </nav>
+
+    </header>
+
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 20% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 60%;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .modal a {
+            color: black;
+        }
+        .modal a:hover {
+            color: red;
+        }
+    </style>
+
+    <div class="container">
+        <div class="card">
+            <form action="/crear" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <h2>Escribe tu número:</h2>
+                    <input type="text" id="title" name="title" placeholder="Escribe tu numero">
+                </div>
+                <div class="form-group">
+                    <h2>Escribe el mensaje:</h2>
+                    <textarea id="description" name="description"
+                        placeholder="Escribe el mensaje que te enviaran"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Crear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <p id="mensajeLink">Da click al enlace y envialo a tu flaquita(o): <br> <a id="linkPersonalizado" href=""></a></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+    const mensajeLink = document.getElementById('mensajeLink');
+    const linkPersonalizado = document.getElementById('linkPersonalizado');
+    const closeModal = document.getElementById('closeModal');
+
+    const formulario = document.querySelector('form');
+
+    formulario.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(formulario);
+
+        try {
+            const response = await fetch('/crear', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+
+                if (data.success) {
+                    // Mostrar el modal con el mensaje del enlace personalizado
+                    mensajeLink.style.display = 'block';
+                    linkPersonalizado.href = data.link;
+                    linkPersonalizado.textContent = data.link;
+                    modal.style.display = 'block';
+                }
+            } else {
+                console.error('Error al crear el elemento.');
+            }
+        } catch (error) {
+            console.error('Error de red:', error);
+        }
+    });
+
+    closeModal.addEventListener('click', () => {
+        // Cerrar el modal al hacer clic en la "X"
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        // Cerrar el modal si se hace clic fuera de él
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+    </script>
+
+</body>
+
+</html>
