@@ -18,6 +18,10 @@ router.get('/crear', (req, res) => {
 });
 
 router.post('/crear', async (req, res) => {
+    const numero = req.body.title;
+    if (!(numero.charAt(0) === '9' && numero.length === 9)) {
+      return res.status(400).json({ success: false, error: "El número debe ser un número real de Perú" });
+    }
     const personalizado = new Personalizado();
     personalizado.title = req.body.title;
     personalizado.description = querystring.escape(req.body.description);
