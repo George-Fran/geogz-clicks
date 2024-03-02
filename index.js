@@ -41,5 +41,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Start//
 app.listen(app.get('port'), () =>{
-    console.log(`Servidor prendido en: ${app.get('port')}`);
+    console.log(`Servidor prendido en: http://localhost:${app.get('port')}/ `);
 })

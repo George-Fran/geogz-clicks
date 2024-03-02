@@ -23,7 +23,7 @@ router.post('/crear', async (req, res) => {
       return res.status(400).json({ success: false, error: "El número debe ser un número real de Perú" });
     }
     const personalizado = new Personalizado();
-    personalizado.title = req.body.title;
+    personalizado.title = req.body.title;   
     personalizado.description = querystring.escape(req.body.description);
 
     // Guarda el elemento recién creado
